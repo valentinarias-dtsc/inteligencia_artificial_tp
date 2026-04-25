@@ -3,3 +3,5 @@ train/neg/
 train/pos/
 test/neg/
 test/pos/
+.vscode/
+.venv/

@@ -1,37 +1,47 @@
 # Inteligencia Artificial - Trabajo Práctico
 
-Este repositorio contiene un trabajo práctico de Inteligencia Artificial enfocado en análisis de sentimientos utilizando el **Large Movie Review Dataset v1.0**.
+Este repositorio contiene un trabajo práctico de Inteligencia Artificial enfocado en **análisis de sentimientos** utilizando el **Large Movie Review Dataset v1.0** (IMDB Reviews).
 
 ## 📁 Estructura del Repositorio
 
 ```
 inteligencia_artificial_tp/
-├── train/                          # Conjunto de datos de entrenamiento
-│   ├── pos/                        # Reseñas positivas (25k archivos)
-│   │   └── [id]_[rating].txt       # Archivos de texto con nombre: id_rating.txt
-│   ├── neg/                        # Reseñas negativas (25k archivos)
-│   │   └── [id]_[rating].txt       # Ejemplo: test/pos/200_8.txt
-│   └── unsup/                      # Documentos sin etiquetar (50k archivos)
-│       └── [id]_0.txt              # Sin información de rating
-│
-├── test/                           # Conjunto de datos de prueba
-│   ├── pos/                        # Reseñas positivas
-│   ├── neg/                        # Reseñas negativas
-│   └── [archivos .feat]            # Características en formato LIBSVM
-│
-├── paper_files/                    # Archivos de referencia y vocabulario
-│   ├── imdb.vocab                  # Vocabulario de tokens (índices de características)
-│   ├── imdbEr.txt                  # Expected rating por token
-│   ├── urls_pos.txt                # URLs de reseñas positivas
-│   ├── urls_neg.txt                # URLs de reseñas negativas
-│   └── urls_unsup.txt              # URLs de documentos sin etiquetar
-│
-└── README.md                       # Este archivo
+├── 01_EDA.ipynb                 # Exploratory Data Analysis (EDA)
+│                                # Análisis exploratorio del dataset
+├── 02_log_reg.ipynb             # Modelo de Regresión Logística
+│                                # Implementación y evaluación
+├── 03_Baseline.ipynb            # Modelo Baseline
+│                                # Comparación de rendimiento
+├── imdb_reviews.csv             # Dataset IMDB en formato CSV
+│                                # Contiene reviews y sentimientos
+├── paper_files/                 # Archivos de referencia y recursos
+│                                # Información del dataset original
+├── LICENSE                      # Licencia MIT
+└── README.md                    # Este archivo
 ```
+
+## 📊 Contenido de los Notebooks
+
+### 1️⃣ **01_EDA.ipynb** - Análisis Exploratorio
+- Carga y exploración del dataset
+- Análisis estadístico de las reseñas
+- Distribución de sentimientos
+- Visualizaciones de datos
+
+### 2️⃣ **02_log_reg.ipynb** - Regresión Logística
+- Preprocesamiento de texto
+- Vectorización de features (TF-IDF)
+- Entrenamiento del modelo de Regresión Logística
+- Evaluación y métricas de rendimiento
+
+### 3️⃣ **03_Baseline.ipynb** - Modelo Baseline
+- Implementación de modelo base
+- Comparación de rendimiento
+- Análisis de resultados
 
 ## 📊 Descripción del Dataset
 
-El **Large Movie Review Dataset v1.0** es un benchmark estándar para clasificación de sentimientos que contiene:
+El **Large Movie Review Dataset v1.0** (IMDB Reviews) es un benchmark estándar para clasificación de sentimientos que contiene:
 
 - **50,000 reseñas etiquetadas**: 25,000 para entrenamiento y 25,000 para prueba
 - **50,000 documentos sin etiquetar**: para aprendizaje no supervisado
@@ -49,24 +59,36 @@ El **Large Movie Review Dataset v1.0** es un benchmark estándar para clasificac
 - Los conjuntos de entrenamiento y prueba contienen películas disjuntas
 - En el conjunto no supervisado hay un número igual de reseñas con puntuación > 5 y ≤ 5
 
-## 📄 Descripción de Archivos
+## 🛠️ Tecnologías Utilizadas
 
-### Archivos de Reseñas
-Formato: `[id]_[rating].txt`
-- `id`: Identificador único de la reseña
-- `rating`: Puntuación en escala de 1-10
+- **Python** 3.x
+- **Jupyter Notebook** para desarrollo interactivo
+- **Pandas** para manipulación de datos
+- **Scikit-learn** para modelos de ML
+- **NLTK/Spacy** para procesamiento de lenguaje natural
+- **Matplotlib/Seaborn** para visualizaciones
 
-**Ejemplo**: `test/pos/200_8.txt` → reseña positiva de prueba con ID 200 y calificación 8/10
+## 📚 Cómo Usar
 
-### Características LIBSVM (.feat)
-Formato de vector disperso ASCII para datos etiquetados. Cada línea contiene:
-- Índice de característica: cantidad (ej: `0:7` significa la palabra en índice 0 aparece 7 veces)
-- Los índices se corresponden con tokens en `imdb.vocab`
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/valentinarias-dtsc/inteligencia_artificial_tp.git
+   cd inteligencia_artificial_tp
+   ```
 
-### Archivos de Referencia
-- **imdb.vocab**: Mapeo de índices a tokens del vocabulario
-- **imdbEr.txt**: Puntuación esperada de polaridad por token
-- **urls_[pos|neg|unsup].txt**: URLs de IMDb (línea N contiene URL de la reseña con ID N)
+2. **Instalar dependencias**
+   ```bash
+   pip install -r requirements.txt  # Si existe
+   # o instalar manualmente:
+   pip install pandas scikit-learn nltk jupyter matplotlib seaborn
+   ```
+
+3. **Ejecutar los notebooks**
+   ```bash
+   jupyter notebook
+   ```
+
+4. **Abrir en orden**: 01_EDA → 02_log_reg → 03_Baseline
 
 ## 📚 Referencias
 
@@ -74,10 +96,9 @@ Para más información sobre el dataset y formato LIBSVM:
 - [LIBSVM Format](http://www.csie.ntu.edu.tw/~cjlin/libsvm/)
 - Maas et al., 2011: "Learning Word Vectors for Sentiment Analysis" (ACL-HLT 2011)
 
-## 👤 Contacto
+## 📄 Licencia
 
-Para consultas sobre el dataset original:
-- Andrew Maas: amaas@cs.stanford.edu
+Este proyecto está bajo la licencia [MIT](LICENSE).
 
 ---
 

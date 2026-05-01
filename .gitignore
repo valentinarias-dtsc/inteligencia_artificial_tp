@@ -1,7 +1,4 @@
-train/unsup/
-train/neg/
-train/pos/
-test/neg/
-test/pos/
+train/
+test/
 .vscode/
 .venv/
